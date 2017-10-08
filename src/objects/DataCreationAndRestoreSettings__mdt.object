@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Custom Metadata settings to define the behavior of data creation or restoration.</description>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>Locked</fieldManageability>
+        <label>Active</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DataSource__c</fullName>
+        <description>The data backup from which the records will get created or restored.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>DataSource</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Static Resource</fullName>
+                    <default>true</default>
+                    <label>Static Resource</label>
+                </value>
+                <value>
+                    <fullName>Content</fullName>
+                    <default>false</default>
+                    <label>Content</label>
+                </value>
+                <value>
+                    <fullName>External Service</fullName>
+                    <default>false</default>
+                    <label>External Service</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DocumentName__c</fullName>
+        <description>Name of the file(content version) or static resource from which the specified object data(records) gets created.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Provide the name of the file or static resource that has the data for the specified object in this setting.</inlineHelpText>
+        <label>DocumentName</label>
+        <length>150</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ExternalIdParent1__c</fullName>
+        <description>External Id field of parent object I.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Select External Id field of parent object I.</inlineHelpText>
+        <label>External Id - Parent I</label>
+        <metadataRelationshipControllingField>DataCreationAndRestoreSettings__mdt.ParentObject1__c</metadataRelationshipControllingField>
+        <referenceTo>FieldDefinition</referenceTo>
+        <relationshipLabel>DataCreationAndRestoreSettings</relationshipLabel>
+        <relationshipName>DataCreationAndRestoreSettings</relationshipName>
+        <required>false</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ExternalIdParent2__c</fullName>
+        <description>External Id field of parent object II</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Select External Id field of parent object II.</inlineHelpText>
+        <label>External Id - Parent II</label>
+        <metadataRelationshipControllingField>DataCreationAndRestoreSettings__mdt.ParentObject2__c</metadataRelationshipControllingField>
+        <referenceTo>FieldDefinition</referenceTo>
+        <relationshipLabel>DataCreationAndRestoreSettings1</relationshipLabel>
+        <relationshipName>DataCreationAndRestoreSettings1</relationshipName>
+        <required>false</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IsFreshData__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Boolean value to identify whether the data is fresh or not.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Check it if this data never exists in the current or any other org.</inlineHelpText>
+        <label>Is Fresh Data</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Object__c</fullName>
+        <description>Holds the entity definition of the object for which the data needs to be created or restored.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Select the object for which you want the data to be created or restored.</inlineHelpText>
+        <label>Primary Object</label>
+        <referenceTo>EntityDefinition</referenceTo>
+        <relationshipLabel>DataCreationRestorationObjects</relationshipLabel>
+        <relationshipName>DataCreationRestorationObjects</relationshipName>
+        <required>false</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Order__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Enter the order in which you want this object records to be created. Please note that order of dependent objects should always be more than its parent objects and vice versa. For non related objects, order does not matter.</inlineHelpText>
+        <label>Order</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ParentObject1__c</fullName>
+        <description>Name of the first parent object if any.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Provide the name of the parent object if any and if it is required to create the records of the object for which this setting is being created.</inlineHelpText>
+        <label>Parent Object-I</label>
+        <referenceTo>EntityDefinition</referenceTo>
+        <relationshipLabel>DataCreationAndRestoreSettings</relationshipLabel>
+        <relationshipName>DataCreationAndRestoreSettings</relationshipName>
+        <required>false</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ParentObject2__c</fullName>
+        <description>Name of the second parent object if any.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Provide the name of the parent object if any and if it is required to create the records of the object for which this setting is being created.</inlineHelpText>
+        <label>Parent Object-II</label>
+        <referenceTo>EntityDefinition</referenceTo>
+        <relationshipLabel>DataCreationAndRestoreSettings1</relationshipLabel>
+        <relationshipName>DataCreationAndRestoreSettings1</relationshipName>
+        <required>false</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RelationshipFieldParent1__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Select the relationship field that your primary object for this custom metadata has with object selected in parent object 1.</inlineHelpText>
+        <label>Relationship Field - Parent 1</label>
+        <metadataRelationshipControllingField>DataCreationAndRestoreSettings__mdt.Object__c</metadataRelationshipControllingField>
+        <referenceTo>FieldDefinition</referenceTo>
+        <relationshipLabel>DataCreationAndRestoreSettings2</relationshipLabel>
+        <relationshipName>DataCreationAndRestoreSettings2</relationshipName>
+        <required>false</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RelationshipFieldParent2__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Select the relationship field that your primary object for this custom metadata has with object selected in parent object 2.</inlineHelpText>
+        <label>Relationship Field - Parent 2</label>
+        <metadataRelationshipControllingField>DataCreationAndRestoreSettings__mdt.Object__c</metadataRelationshipControllingField>
+        <referenceTo>FieldDefinition</referenceTo>
+        <relationshipLabel>DataCreationAndRestoreSettings3</relationshipLabel>
+        <relationshipName>DataCreationAndRestoreSettings3</relationshipName>
+        <required>false</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <label>DataCreationAndRestoreSettings</label>
+    <pluralLabel>DataCreationAndRestoreSettings</pluralLabel>
+    <validationRules>
+        <fullName>ExternalIdFieldRequired</fullName>
+        <active>true</active>
+        <description>Shell External Id field is required in case of related parent object is selected.</description>
+        <errorConditionFormula>( ISBLANK(ExternalIdParent1__c) &amp;&amp; NOT(ISBLANK(ParentObject1__c)) ) ||
+            ( ISBLANK(ExternalIdParent2__c) &amp;&amp; NOT(ISBLANK(ParentObject2__c)))</errorConditionFormula>
+        <errorMessage>Related External Id field should be selected in case of Parent Object is selected.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ObjectNameRequired</fullName>
+        <active>true</active>
+        <description>Object name required in case of isFreshData is checked.</description>
+        <errorConditionFormula>ISBLANK( Object__c )  &amp;&amp;  IsFreshData__c</errorConditionFormula>
+        <errorDisplayField>Object__c</errorDisplayField>
+        <errorMessage>Object is not selected in case of &apos;Is Fresh Data&apos; is checked.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>
